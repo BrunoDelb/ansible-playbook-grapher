@@ -17,27 +17,16 @@ Inspired by [Ansible Inventory Grapher](https://github.com/willthames/ansible-in
  $ sudo apt-get install graphviz # or yum install or brew install
  ```
  
-## Installation
+## Build
 ```
-$ pip install ansible-playbook-grapher
+docker build -t ansible-playbook-grapher .
 ```
 
 ## Usage
 
 ```
-$ ansible-playbook-grapher tests/fixtures/example.png
+docker run -e FILENAME=mygraph -v $PWD:/work ansible-playbook-grapher generate-graph my_playbook.yml
 ```
-
-![Example](https://raw.githubusercontent.com/haidaraM/ansible-playbook-grapher/master/tests/fixtures/img/example.png)
-
-
-```
-$ ansible-playbook-grapher --include-role-tasks  examples/example_with_roles.yml
-```
-
-
-![Example](https://raw.githubusercontent.com/haidaraM/ansible-playbook-grapher/master/tests/fixtures/img/example_with_roles.png)
-
 
 Some options are available:
 
